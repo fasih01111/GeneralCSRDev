@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Rikyas</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/assets/vendors/css/all.min.css" rel="stylesheet" />
+    <link href="/assets/custom/css/style.css" rel="stylesheet" />
+    <link href="/assets/vendors/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
+    <script src="/assets/vendors/jquery/jquery-3.1.1.min.js"></script>
+    @*<script src="/assets/vendors/script/emojione.min.js"></script>*@
+    <script src="/assets/vendors/script/emojionearea.min.js"></script>
+    <link href="/assets/vendors/css/emojionearea.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="~/Signalr/Hubs"></script>
+
+    <script>
+        var generalHub = $.connection.generalHub;
+    </script>
+    <script src="/assets/custom/script/hub/posts.js"></script>
+
+    <script>
+
+        $.connection.hub.start().done(function () {
+            // generalHub.server.userOnConnect();
+            var Data = { "ConnectionID": $.connection.hub.id }
+            runAjax('@Url.Action("UserOnConnect", "Home")', Data, false, $("body"), "full", "");
+        });
+
+        //generalHub.client.hello = function () { console.log("Connected"); }
+
+        //generalHub.client.setPost = function (data) {
+        //    //console.log("Set Post Working");
+        //    //console.log(data);
+        //    //setPosts(data);
+        //    if (data.Table[0].length > 0) {
+        //        $(".no-activity").remove();
+        //        $(".post-div").prepend(getPostElem(data.Table[0]));
+        //    }
+        //}
+    </script>
+
+</head>
+<body>
+    <div class="st-container">
+        <div class="navbar navbar-main navbar-primary navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*<a href="#sidebar-chat" data-toggle="sidebar-menu" class="toggle pull-right visible-xs"><i class="fa fa-comments"></i></a>*@
+                    <a class="navbar-brand" href="~/Home/Index">Rikyas</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                @*<div class="input-group search-bar dropdown">
+                        @*<input type="text" class="form-control" id="pref-search" onclick="showCreatePostModal();">
+                        <i class="fa fa-spinner fa-spin search-loading" style="display: none"></i>
+                        <input type="text" class="form-control" onkeyup="fullSearch(event)" onkeydown="changeSearchLi(event)" onclick="$('.dropdown-menu.modal-group-list').show()" id="pref-search">
+                        <ul class="dropdown-menu modal-group-list" role="menu" style="width:150%; max-height: 310px; overflow-y: auto;">
+                            <li><h4 class="text-center">No Recent Search!</h4></li>
+                        </ul>
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                    </div>*@
+
+                <button class="btn btn-issue col-md-4 col-md-offset-3" onclick="showCreatePostModal();">Lets solve an issue</button>
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="nav navbar-nav  navbar-right ">
+
+                        <li class="">
+                            <a href="javascript:void(0)" class="with-title" onclick="showSearchBar(this)">
+                                <div>
+                                    <i class="material-icons">search</i>
+                                </div>
+                                <span>Search</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="~/Home/Invitation" class="with-title">
+                                <div>
+                                    <i class="material-icons">person_add</i>
+                                </div>
+                                <span>Invite</span>
+                            </a>
+                        </li>
+
+                        <li class="timeline-block dropdown">
+                            <a href="#" data-toggle="dropdown" class="with-title">
+                                <div>
+                                    <i class="material-icons">notifications</i>
+                                </div>
+                                <span>Notifications</span>
+                                <span class="count noti-count">10</span>
+                            </a>
+                            <div class="panel panel-default notification dropdown-menu" role="menu">
+                                <div class="panel-heading title">
+                                    Notifications
+                                </div>
+                                <div class="panel-body no-padding">
+
+                                    <ul class="modal-group-list">
+                                        <li>
+                                            <div class="media-left">
+                                                <a href="/Profile/Index/1">
+                                                    <img src="/assets/images/people/fasih.jpg" width="28" height="28" class="media-object img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="user-details">Fasih and 12 others commented on your post</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media-left">
+                                                <a href="/Profile/Index/1">
+                                                    <img src="/assets/images/people/sample.png" width="28" height="28" class="media-object img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="user-details">Faisal follow your post</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media-left">
+                                                <a href="/Profile/Index/1">
+                                                    <img src="/assets/images/people/AliMotiwala.jpg" width="28" height="28" class="media-object img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="user-details">Ali endorse in your comment</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media-left">
+                                                <a href="/Profile/Index/1">
+                                                    <img src="/assets/images/people/fasih.jpg" width="28" height="28" class="media-object img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="user-details">Fasih endorse in your comment</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    @*<ul class="comments">
+                                            <li class="media">
+                                                <div class="media-left">
+                                                    <a href="">
+                                                        <img src="/assets/images/people/50/guy-5.jpg" class="media-object">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <p>Hi Mary, Nice Party</p>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+                                                <div class="media-left">
+                                                    <a href="">
+                                                        <img src="/assets/images/people/50/woman-5.jpg" class="media-object">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span>Thanks Bill</span>
+
+                                                </div>
+                                            </li>
+                                        </ul>*@
+
+                                </div>
+                            </div>
+                            @*<ul class="dropdown-menu" role="menu">
+                                    <li></li>
+
+                                </ul>*@
+                        </li>
+
+                        <li class="dropdown" style="border-left: 1px solid #5c6f7c">
+                            <a href="#" class="dropdown-toggle user with-title" data-toggle="dropdown">
+                                <div>
+                                    <img src="/assets/images/people/Sample.png" alt="Bill" class="img-circle" />
+                                </div>
+                                <span class="">Me&nbsp;&#9660;</span>
+                                @*<span class="caret"></span>*@
+                            </a>
+                            <ul class="dropdown-menu user" role="menu" style="width: 260px;">
+                                <li>
+                                    <div href="javascript:void(0)" style="padding: 16px;">
+                                        <img src="/assets/images/people/Sample.png" alt="Bill" class="img-circle" width="60" />
+                                        <span class="full-name" style="margin-bottom: 0px;">Muhammad Fasih</span>
+                                    </div>
+                                </li>
+                                <li><a href="/Profile/Index">View Profile</a></li>
+                                <li><a href="/Home/StarredMessages">Starred Messages</a></li>
+                                <li><a href="user-private-messages.html">Settings & Privacy</a></li>
+                                <li><a href="javascript:void(0)" onclick="Logout();">Sign out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-div"></div>
+    <script src="/assets/vendors/script/all.min.js"></script>
+    <script src="/assets/vendors/script/bootstrap-material-datetimepicker.js"></script>
+    <script src="/assets/vendors/script/caretposition.js"></script>
+
+    <script src="/assets/custom/script/func.js?v=1"></script>
+    <script src="/assets/custom/script/posts.js?v=1"></script>
+    <script src="/assets/custom/script/arrays.js?v=1"></script>
+    <script src="/assets/custom/script/main.js?v=1"></script>
+    <script src="/assets/custom/script/profile.js?v=1"></script>
+    <script src="/assets/custom/script/validaion.js?v=1"></script>
+    <script src="/assets/custom/script/fileUpload.js?v=1"></script>
+    <script src="/assets/custom/script/actions.js?v=1"></script>
+    <script src="/assets/custom/script/loadingMockups.js?v=1"></script>
+    <script src="/assets/vendors/script/emojione.min.js?v=1"></script>
+
+    <script>
+
+
+        $(document).ready(function () {
+            getHeaderDetails();
+            //$("select").selectpicker()
+            $(document).keyup(function (ev) {
+                if (ev.keyCode == 27) {
+                    closeModal($(".modal-div .modal:last .modal-dialog"));
+                    closeSearchBar("#pref-search");
+                }
+            });
+
+        });
+
+        function getHeaderDetails() {
+            var Data = { "UserID": "" }
+            runAjax('@Url.Action("GetUserDetails", "Home")', Data, false, $("body"), "full", setHeaderDetails);
+        }
+        function setHeaderDetails(data, e) {
+            //console.log(data);
+            $(".full-name").text(data.Table[0]["FirstName"] + " " + data.Table[0]["LastName"]);
+            $(".user img").attr("src", "/assets/images/people/" + data.Table[0]['ImageUrl']);
+        }
+
+        @*$('.tooltip-name').tooltipster({
+            content: 'Loading...',
+            functionBefore: function (instance, helper) {
+                var $origin = $(helper.origin);
+                if ($origin.data('loaded') !== true) {
+                    $.get('@Url.Action("GetUserProfileDetails", "Home")', { UserID: "1" }, function (data) {
+                        instance.content(data);
+                        $origin.data('loaded', true);
+                    });
+                }
+            }
+        });*@
+
+        @*var Data = { "UserID": userID }
+        runAjax('@Url.Action("GetUserProfileDetails", "Home")', Data, false, $("body"), "full", setUserDetails);*@
+
+    </script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

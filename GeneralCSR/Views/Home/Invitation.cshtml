@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Invitation";
+}
+
+<div class="row timeline-block">
+    <div class="col-md-8 col-md-offset-2">
+        <h2 class="text-center" style="margin: 10px 0px;color: #b92b27;font-size: 30px;">Invitation Form</h2>
+
+        <div class="panel">
+            <div class="panel-heading panel-heading-gray title">
+                Who do you want to invite?
+            </div>
+            <div class="panel-body" style="padding: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">First name (Optional)</label>
+                            <input type="text" id="txt-fName" class="form-control" autofocus />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Last name (Optional)</label>
+                            <input type="text" id="txt-lName" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="text" id="txt-email" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="email">Personal mesaage (Optional)</label>
+                            <textarea type="text" id="txt-desc" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="text-right">
+                    <a class="btn btn-link" href="~/Home/Index" />No thanks, maybe later</a>
+                    <input type="button" class="btn btn-primary" value="Send Invitation" onclick="sendInvitation(this);" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function sendInvitation(e) {
+        var $fName = $("#txt-fName").val();
+        var $lName = $("#txt-lName").val();
+        var $email = $("#txt-email").val();
+        var $desc = $("#txt-desc").val();
+
+        if ($email != "") {
+            var Data = { "FName": $fName, "LName": $lName, "Email": $email, "Desc": $desc };
+            runAjax("/Home/SendInvitaion", Data, false, "", "", afterSendInvitation, e);
+        } else {
+            showAlert("d", "Please fill required fields!", $(e).closest(".panel").find(".panel-body"), true);
+        }
+    }
+
+    function afterSendInvitation(data, e) {
+        //$(e).closest(".panel-footer").find("a").click();
+        window.location = "http://localhost:1838/Home/Index";
+    }
+</script>

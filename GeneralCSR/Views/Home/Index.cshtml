@@ -1,0 +1,319 @@
+﻿<div class="timeline row">
+    @*<table>
+            <tr><td>Email:</td><td><b>@TempData["email"]</b></td></tr>
+            <tr><td>First Name:</td><td><b>@TempData["first_name"]</b></td></tr>
+            <tr><td>Last Name:</td><td><b>@TempData["lastname"]</b></td></tr>
+            <tr><td>Picture:</td><td><b><img src="@TempData["picture"]" /></b></td></tr>
+
+        </table>*@
+
+
+    <div class="col-xs-12 col-md-3 col-lg-3 timeline-block">
+
+        @*<div class="panel">
+                <div class="panel-heading panel-heading-gray title">
+                    Take An Action
+                </div>
+
+                <div class="panel-body no-padding list-group">
+                    <ul class="links">
+                        <li><a href="javascript:todo(this);">Volunteers</a></li>
+                        <li><a href="javascript:todo(this);">Petitions</a></li>
+                        <li><a href="javascript:todo(this);">Donate</a></li>
+                        <li><a href="javascript:todo(this);">Skill bored volunteering</a></li>
+                        <li><a href="javascript:todo(this);">Find white paper</a></li>
+                        <li><a href="javascript:todo(this);">Visit archives</a></li>
+                    </ul>
+                </div>
+            </div>*@
+
+        @*@{Html.RenderPartial("_Activities");}*@
+        @*<div class="panel">
+                <div class="panel-heading panel-heading-gray title">
+                    Posts
+                </div>
+                <div class="panel-body no-padding list-group" style="padding: 4px !important;">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs posts-nav" role="tablist">
+                        <li role="presentation" class="active"><a href="#follow" aria-controls="home" role="tab" data-toggle="tab">Follow</a></li>
+                        <li role="presentation"><a href="#trending" aria-controls="profile" role="tab" data-toggle="tab">Trending</a></li>
+                        <li role="presentation"><a href="#delivered" aria-controls="messages" role="tab" data-toggle="tab">Delivered</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="follow">
+                            <ul>
+                                <li><a>Why didn't Hermes drop the supply probe on Mars?</a></li>
+                                <li><a>If spacetime is curved, how would anyone know? If anyone could tell, would that really be spacetime curving?</a></li>
+                                <li><a>Why is sshd displayed several times on one branch of a pstree?</a></li>
+                                <li><a>How did Jamal get into the game show?</a></li>
+                                <li><a>Why do many sites leave half of each webpage empty?</a></li>
+                            </ul>
+
+
+
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="trending">...</div>
+                        <div role="tabpanel" class="tab-pane" id="delivered">...</div>
+                    </div>
+
+                </div>
+            </div>*@
+        <div class="panel">
+            <div class="panel-heading panel-heading-gray title">
+                Take An Action
+            </div>
+            <div class="panel-body list-group padding-4">
+                <a href="javascript:showDonatePopup(this);">
+                    <div class="col-md-4 padding-4">
+                        <div class="panel text-center no-margin padding-4">
+                            <img src="/assets/images/donation.png" width="50"><div class="action-title">Donate</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:showSkillVolunteerPopup(this);">
+                    <div class="col-md-4 padding-4">
+                        <div class="panel text-center no-margin padding-4">
+                            <img src="/assets/images/collaboration.png" width="50"><div class="action-title">Volunteer</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:showPetitionPopup(this);">
+                    <div class="col-md-4 padding-4">
+                        <div class="panel text-center no-margin padding-4">
+                            <img src="/assets/images/file.png" width="50"><div class="action-title">Petition</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:showWhitePaperPopup(this);">
+                    <div class="col-md-4 padding-4">
+                        <div class="panel text-center no-margin padding-4">
+                            <img src="/assets/images/contract.png" width="50"><div class="action-title">White Paper</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:showEventsPopup(this);">
+                    <div class="col-md-4 padding-4">
+                        <div class="panel text-center no-margin padding-4">
+                            <img src="/assets/images/events.png" width="50"><div class="action-title">Events</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/Home/Archive" target="_blank">
+                    <div class="col-md-4 padding-4">
+                        <div class="panel text-center no-margin padding-4">
+                            <img src="/assets/images/archive.png" width="50"><div class="action-title">Archive</div>
+                        </div>
+                    </div>
+                </a>
+
+                @*<a href="/Home/Category/1"><img class="col-md-4 padding-4" data-img-id="01" src="/assets/images/goals-images/01.png" /></a>
+                    <a href="/Home/Category/2"><img class="col-md-4 padding-4" data-img-id="02" src="/assets/images/goals-images/02.png" /></a>
+                    <a href="/Home/Category/3"><img class="col-md-4 padding-4" data-img-id="03" src="/assets/images/goals-images/03.png" /></a>
+                    <a href="/Home/Category/4"><img class="col-md-4 padding-4" data-img-id="04" src="/assets/images/goals-images/04.png" /></a>
+                    <a href="/Home/Category/5"><img class="col-md-4 padding-4" data-img-id="05" src="/assets/images/goals-images/05.png" /></a>
+                    <a href="/Home/Category/6"><img class="col-md-4 padding-4" data-img-id="06" src="/assets/images/goals-images/06.png" /></a>*@
+
+
+
+
+
+                @*<ul class="links">
+                        <li><a href="javascript:showDonatePopup(this);">Donate</a></li>
+                        <li><a href="javascript:showPetitionPopup(this);">Petitions</a></li>
+                        <li><a href="javascript:showSkillVolunteerPopup(this);">Skill based volunteering</a></li>
+                        <li><a href="javascript:showWhitePaperPopup(this);">Find white paper</a></li>
+                        <li><a href="javascript:showEventsPopup(this);">Events</a></li>
+                        <li><a href="javascript:showArchivePopup(this);">Visit archives</a></li>
+                    </ul>*@
+            </div>
+        </div>
+
+        @*<div class="panel">
+                <div class="panel-body text-center">
+                    Comming Soon...
+                </div>
+            </div>*@
+
+        @{Html.RenderPartial("_Categories");}
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6">
+        @*<div class="timeline-block">
+                <div class="panel panel-default share main-validate loading-div">
+                        <div class="panel-heading panel-heading-gray title ">
+                            Ask An Issue
+                            <i class="fa fa-plus pull-right cursor-pointer" aria-hidden="true" style="margin-top: 3px;" onclick="showHide(this)"></i>
+                        </div>
+                        <div class="show-hide" style="display:none">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-control" id="title" data-validate="required" onfocus="validateOn(this, event)" onblur="validateOn(this, event)">
+                                        </div>
+                                    </div><div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="categories">Category</label>
+                                            <select class="selectpicker form-control"></select>
+                                        </div>
+                                    </div><div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="body">Description</label>
+                                            <textarea id="body"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer share-buttons">
+                                <a href="javascript:void(0)">
+                                    <div class="fa fa-files-o fileinput-button share-attachment">
+                                        <input type="file" onchange="checkFile(this);" multiple="multiple" />
+                                    </div>
+                                </a>
+                                <button class="btn btn-primary btn-xs pull-right" onclick="createPost(this);">Post</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>*@
+        <div class="timeline-block">
+
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-gray title">Show Me</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <select class="selectpicker form-control" id="show-me" onchange="onChangeCall(this)">
+                                <option value="1">Trending Issues</option>
+                                <option value="2">Issues I Follow</option>
+                                <option value="3">Latest Issues Posted</option>
+                                <option value="4">Issues Successfully Closed</option>
+                                <option value="5">Issues With Petition</option>
+                                <option value="6">Issues With Crowd Funding</option>
+                                <option value="7">Issues where voluntary work is required</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input class="form-control" id="start-date" type="text" placeholder="Start Date" />
+                        </div>
+                        <div class="col-md-3">
+                            <input class="form-control" id="end-date" type="text" placeholder="End Date" />
+                        </div>
+                        <div class="row col-md-1">
+                            <button type="button" class="btn btn-primary" onclick="todo(this);"> <span class="fa fa-search"></span></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="panel form-inline">
+                <div class="form-group">
+                    <label for="show-me">Show Me: </label>
+                    <select class="selectpicker form-control" id="show-me" onchange="onChangeCall(this)">
+                        <option value="1">Trending issues</option>
+                        <option value="2">Issues I follow</option>
+                        <option value="3">Latest issues posted</option>
+                        <option value="4">Issues Successfully closed</option>
+                        <option value="5">Issues With Petition</option>
+                        <option value="6">Issues With crowd funding</option>
+                        <option value="7">Issues where voluntary work is required</option>
+                    </select>
+                </div>
+            </div>*@
+
+        @{Html.RenderPartial("_Posts");}
+    </div>
+    <div class="col-xs-12 col-md-3 col-lg-3 timeline-block">
+
+
+
+        @{Html.RenderPartial("_Activities");}
+
+
+        @{Html.RenderPartial("_Trendings");}
+
+        @*<div class="panel">
+                <div class="panel-heading panel-heading-gray title">
+                    Trending
+                </div>
+
+                <div class="panel-body no-padding list-group">
+                    <ul class="links">
+                        <li><a href="/Post/Index">Why didn't Hermes drop the supply probe on Mars?</a></li>
+                        <li><a href="/Post/Index">If spacetime is curved, how would anyone know? If anyone could tell, would that really be spacetime curving?</a></li>
+                        <li><a href="/Post/Index">Why is sshd displayed several times on one branch of a pstree?</a></li>
+                        <li><a href="/Post/Index">How did Jamal get into the game show?</a></li>
+                        <li><a href="/Post/Index">Why do many sites leave half of each webpage empty?</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading panel-heading-gray title">
+                    Follow
+                </div>
+                <div class="panel-body no-padding list-group">
+                    <ul class="links">
+                        <li><a href="/Post/Index">Why didn't Hermes drop the supply probe on Mars?</a></li>
+                        <li><a href="/Post/Index">If spacetime is curved, how would anyone know? If anyone could tell, would that really be spacetime curving?</a></li>
+                        <li><a href="/Post/Index">Why is sshd displayed several times on one branch of a pstree?</a></li>
+                        <li><a href="/Post/Index">How did Jamal get into the game show?</a></li>
+                        <li><a href="/Post/Index">Why do many sites leave half of each webpage empty?</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading panel-heading-gray title">
+                    Delivered
+                </div>
+                <div class="panel-body no-padding list-group">
+                    <ul class="links">
+                        <li><a href="/Post/Index">Why didn't Hermes drop the supply probe on Mars?</a></li>
+                        <li><a href="/Post/Index">If spacetime is curved, how would anyone know? If anyone could tell, would that really be spacetime curving?</a></li>
+                        <li><a href="/Post/Index">Why is sshd displayed several times on one branch of a pstree?</a></li>
+                        <li><a href="/Post/Index">How did Jamal get into the game show?</a></li>
+                        <li><a href="/Post/Index">Why do many sites leave half of each webpage empty?</a></li>
+                    </ul>
+                </div>
+            </div>*@
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        getAllCategories();
+        getPosts("0", "0");
+
+        $('#start-date, #end-date').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
+        $("#body").emojioneArea({
+            pickerPosition: "bottom",
+            tonesStyle: "bullet",
+            saveEmojisAs: "shortname"
+            //container: "#container",
+            //hideSource: false,
+            //useSprite: false
+        });
+
+
+    });
+
+    function onChangeCall(e) {
+        var $me = $(e);
+
+        //var selectedOptions = $me.find("option:selected").val();
+
+        //if (selectedOptions == 2) {
+        //    $(".post-div").empty();
+        //    getPostsIFollow("0", "0");
+        //} else if (selectedOptions == 3) {
+        //    $(".post-div").empty();
+        //    getPosts("0", "0");
+        //}
+        //else {
+
+        //}
+    }
+
+</script>

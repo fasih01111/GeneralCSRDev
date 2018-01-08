@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Archive";
+}
+
+<div class="archive-box-container">
+
+</div>
+
+<script>
+
+    $(function () {
+        $elem = '';
+
+        for (var i = 0; i < 17; i++) {
+            if (i == 0 || i == 6 || i == 12) {
+                $elem += '<div class="row ">';
+            }
+            $elem += '<div class="col-md-2" onclick="showCategoryArchivePostsPopup(this);" data-cat-id="' + catDetails[i]["ID"] + '">';
+            $elem += '<div class="archive-box panel">';
+            $elem += '<div class="archive-img">';
+            $elem += '<img data-img-id="' + catDetails[i]["ID"] + '" src="/assets/images/goals-images/I' + catDetails[i]["ImgUrl"] + '">';
+            $elem += '</div>';
+            $elem += '<div class="archive-title">' + catDetails[i]["ShowDetails"]["Name"] + '</div>';
+            $elem += '<div class="archive-details pull-left" style="width:100%;">';
+            $elem += '<div class="fa fa-tasks div-icon" aria-hidden="true"></div>';
+            $elem += '<div class="div-details"> 2002 <br /> items</div>';
+            $elem += '</div>';
+            $elem += '</div>';
+            $elem += '</div>';
+            if (i == 5 || i == 11 || i == 16) {
+                $elem += '</div>';
+            }
+        }
+
+        $(".archive-box-container").append($elem);
+    });
+
+    function showCategoryArchivePostsPopup(e) {
+        var $me = $(e);
+        var Data = { "CatID": $me.data("cat-id") };
+        runAjax("/Post/ShowArchivePosts", Data, true, $me, "button", afterShowCategoryArchivePostsPopup, $me);
+
+    }
+
+    function afterShowCategoryArchivePostsPopup(data, e) {
+        var $bodyElem = '';
+        if (data.length > 0) {
+            
+            $bodyElem += '<ul class="modal-group-list">';
+            for (var i = 0; i < data.length; i++) {
+                $bodyElem += '<li>';
+                //$bodyElem += '<div class="media-left"><a href="#"><img src="/assets/images/people/P.png" width="40" height="40" class="media-object img-circle"></a></div>';
+                $bodyElem += '<div class="media-body">';
+                $bodyElem += '<span class="" href="#">' + data[i].Title + '</a>';
+
+                
+                $bodyElem += '<div></div>';
+                $bodyElem += '</div>';
+                $bodyElem += '</li>';
+            }
+            $bodyElem += '</ul>';
+        } else {
+            $bodyElem += '<h3 class="text-center">No archives found!</h3>';
+        }
+        showModal(true, true, true, "Donation", $bodyElem, "");
+    }
+</script>

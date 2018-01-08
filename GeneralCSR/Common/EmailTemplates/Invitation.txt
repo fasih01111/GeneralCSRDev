@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Tresmark</title>
+</head>
+
+<body bgcolor="#e4e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="-webkit-font-smoothing: antialiased;width:100% !important;background:#e4e4e4;-webkit-text-size-adjust:none;padding:30px 0px; font-family:Helvetica, Arial, sans-serif;">
+<!--Begin main-container-->
+<table bgcolor="#e4e4e4" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#e4e4e4;">
+  <!--Begin header-->
+  <tr>
+  
+    <td>
+	<table width="600" align="center" style="margin:0 auto; margin-bottom:10px; text-align: center">
+	<tr>
+  
+    <td>
+	<div style="color: #b92b27;font-size: 50px;margin: 8px;">Rikyas</div>
+					<div style="color: #999999;font-size: 19px;">A place to share knowledge and better understand the world</div>
+					</td>
+	</tr>
+				</table>	    
+	</td>
+	</tr>
+	<!--End header-->
+	<tr>
+	<td>
+	
+    	<table bgcolor="#fff" width="600" align="center" style="margin:0 auto; background-color:#fff; border-collapse:collapse;margin-bottom:30px;border:1px solid #ccc;">
+            <!--Begin content-->
+        	<tr>
+            	<td>
+                	<table bgcolor="#fff" width="540" align="center" style="margin:14px auto;border-collapse:collapse;">
+                    	<tr>
+                        	<td>
+                                <!--saprator
+                                <p style="margin:0;padding:0;text-align:center;">
+                                	<img src="http://www.rikyas.com:8000/Common/EmailTemplates/saprator.jpg" alt="saprator" />
+                                </p>
+                                <!--saprator-->
+                                
+                                <!--Begin Welcome content
+                                <div style="margin:20px 0 20px 0; text-align:center;">
+                                	<h3 style="color:#000; font-family:Arial, Helvetica, sans-serif; font-size:20px;text-align:center;">
+                                    	Welcome to Tresmark!
+                                    </h3>
+                                </div>-->
+                                <!--End Welcome content-->
+                                
+                                <!--Begin Para-->
+                                <div style="margin:10px 0 10px 0;">
+								<strong style="font-weight: bold;font-size: 16px;line-height: 24px;font-family: Helvetica, Arial, sans-serif;color: #444444;text-align: left;padding-bottom: 5px;">
+								Dear Bilal,
+								</strong>
+								<br />
+								<span style="font-weight: normal;font-size: 14px;line-height: 21px;font-family: Helvetica, Arial, sans-serif;color: #444444;text-align: left;">
+								<strong>Muhammad Fasih</strong> has invited you to join Rikyas — the no.1 community for current, former, and future expats worldwide.
+								</span>
+								                                    
+                                    <!--saprator-->
+                                    <p style="margin:0;padding:0;text-align:center;">
+                                    	<img src="http://www.rikyas.com:8000/Common/EmailTemplates/saprator.jpg" alt="saprator" />
+                                    </p>
+                                    <!--saprator-->
+                                    
+                                    <!--Begin Para2-->
+                                	<p style="color:#656565; font-family:Arial, Helvetica, sans-serif; font-size:14px;line-height: 23px; margin: 0 0 10px 0;">
+                                   You are invited by:
+                                    </p>
+                                    <!--End Para2-->
+                                    
+									<div  style="border-radius: 50%; width: 100px; height: 100px; overflow: hidden; float: left">
+									<img src="http://www.rikyas.com:8000/Common/EmailTemplates/fasih.jpg" width="100">
+									</div>
+									
+									<h4 style="margin-left: 16px; float: left">Muhammad Fasih</h4>
+									
+									
+									<p style="margin-top: 130px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; font-weight: normal; font-size: 14px; line-height: 21px; font-family: Helvetica, Arial, sans-serif; color: #777777; font-style: italic; background-color: #F3F3F3;">
+									
+									Hi,
+Join me on Rikyas, a great community for international people, where you can network, meet at regular events and get information and tips on living abroad.
+									</p>
+									
+									
+									
+									<div style="text-align: center">
+									<a target="_blank" href="@Link" style="border-radius: 3px; font-weight: bold; font-size: 14px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; display: inline-block; padding: 6px 18px; border: 1px solid #203049; background-color: #203049; color: #ffffff; cursor:pointer;">Accept Fasih's invitation</a>
+									</div>
+                                    <!--saprator-->
+                                    <p style="margin:0;padding:0;text-align:center;">
+                                    	<img src="http://www.rikyas.com:8000/Common/EmailTemplates/saprator.jpg" alt="saprator" />
+                                    </p>
+                                    <!--saprator-->
+                                    
+                                    <!--Begin Para3-->
+                                	<p style="color:#656565; font-family:Arial, Helvetica, sans-serif; font-size:11px;text-align:center;line-height: 23px; margin: 0 0 20px 0;">
+                                    <strong>Please note:</strong> Rikyas runs best with <strong>Firefox, Safari and Google Chrome browsers.</strong><br /><br />
+<strong>Disclaimer: </strong>
+This email has been sent by a mail robot.<br />
+Please do not reply to this message as the inbox is not monitored.  <br /><br />
+ 
+                                    </p>
+                                    <!--End Para3-->
+                                    
+                                </div>
+                                <!--End Para-->
+                                
+                            </td>
+                        </tr>    
+                    </table>
+                </td>
+            </tr>
+        	<!--End content-->
+            
+        </table>
+    </td>
+  </tr>
+  
+  <tr>
+  	<td>
+    	<table width="600" align="center" style="width:600px;margin:0 auto; border-collapse:collapse;">
+        	<tr>
+            	<td style="text-align:center;color:#656565; font-family:Arial, Helvetica, sans-serif; font-size:11px;text-align:center;line-height:18px;">
+                	<!--<img src="cid:FooterLogo" alt="footer-logo" />-->
+                    
+                    Office 202, Clifton Diamond, Clifton Block 4, <br />
+Karachi, Pakistan. <br />
+Telephone: +92 21 35876423-5
+                </td>
+            </tr>
+        </table>
+    </td>
+  </tr>
+  
+</table>
+
+
+<!--Close main-container-->
+</body>
+</html>
+

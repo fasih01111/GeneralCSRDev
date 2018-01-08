@@ -1,0 +1,70 @@
+﻿<div class="timeline row">
+    <div class="col-md-3 timeline-block">
+        <div class="panel panel-default">
+            <div class="panel-body no-padding">
+                <div class="panel-body cat-img">
+                    @*<img src="/assets/images/goals-images/02.png" class="img-responsive " />*@
+                </div>
+                <h4 class="text-center profile-card-full-name"></h4>
+                <ul class="links">
+                    <li><a href="#">Related Issues <span class="badge"> 5</span></a></li>
+                    <li><a href="#">Popularity <span class="badge"> 5</span></a></li>
+                    <li><a href="#">NGO's Listed <span class="badge"> 5</span></a></li>
+                    <li><a href="#">Partners <span class="badge"> 5</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        @{Html.RenderPartial("_Categories");}
+    </div>
+    <div class="col-md-9">
+        <ul class="nav nav-tabs cat-tabs" role="tablist">
+            <li role="presentation" class="active" title="Overview"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li>
+            <li role="presentation" title="Issues Under This Category"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Related Issues</a></li>
+            <li role="presentation" title="NGOs Listed Under This Category In Pakistan"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">NGOs Listed</a></li>
+            <li role="presentation" title="Partners In This Category"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Partners</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content cat-details">
+            <div role="tabpanel" class="tab-pane active panel-body" id="overview">
+
+            </div>
+            <div role="tabpanel" class="tab-pane panel-body" id="profile">
+                <h2 class="text-center">Related Issues</h2>
+            </div>
+            <div role="tabpanel" class="tab-pane panel-body" id="messages">
+                <h2 class="text-center">No NGO Listed Yet</h2>
+            </div>
+            <div role="tabpanel" class="tab-pane panel-body" id="settings">
+                <h2 class="text-center">No Partners Listed Yet</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        var $param = getURLParameter();
+        var $objVal = parseInt($param) - 1;
+        if ($param > 0 && $param < 18) {
+            var $imgElem = '<img src="/assets/images/goals-images/' + catDetails[$objVal]["ImgUrl"] + '" class="img-responsive " />';
+            $(".cat-img").append($imgElem);
+            $elem = '';
+            for (var obj2 in catDetails[$objVal]["ShowDetails"]) {
+                // console.log(obj2 + " " + catDetails[$objVal]["ShowDetails"][obj2])
+                $elem += '<div class="tab">';
+                $elem += '<div class="tab-title">' + obj2 + '</div>';
+                $elem += '<div class="clear"></div>';
+                $elem += '</div>';
+                $elem += '<p> ' + catDetails[$objVal]["ShowDetails"][obj2] + '</p>';
+            }
+            $("#overview").empty();
+            $("#overview").append($elem);
+        } else {
+            window.location.href = "/Home/Index";
+        }
+    });
+</script>

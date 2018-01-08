@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="timeline row">
+    <div class="col-md-3 timeline-block">
+        <div class="panel panel-default profile-card clearfix-xs">
+            <div class="panel-body no-padding">
+                <div class="profile-card-icon animated-background">
+                    @*<img src="/assets/images/people/110/guy-6.jpg" width="120" />*@
+                </div>
+                <h4 class="text-center profile-card-full-name"></h4>
+                @*<button class="btn btn-primary" style="margin-top:8px;" onclick="follow(this)" id="btn-follow" data-user-id="">Follow</button>*@
+                <ul class="links">
+                    <li><a href="#">Posts 10</a></li>
+                    <li><a href="#">Endorses 25</a></li>
+                    <li><a href="#">Supports 10</a></li>
+                    <li><a href="#">Followers 10</a></li>
+                    <li><a href="#">Following 20</a></li>
+                </ul>
+            </div>
+        </div>
+
+        @*<div class="panel panel-default followers">
+            <div class="panel-heading panel-heading-gray title">
+                Followers
+            </div>
+            <div class="panel-body no-padding">
+                <ul class="modal-group-list"></ul>
+            </div>
+        </div>
+        <div class="panel panel-default followings">
+            <div class="panel-heading panel-heading-gray title">
+                Followings
+            </div>
+
+            <div class="panel-body no-padding">
+                <ul class="modal-group-list"></ul>
+            </div>
+        </div>*@
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-6 timeline-block">
+        @{Html.RenderPartial("_Posts");}
+    </div>
+    <div class="col-xs-12 col-md-3 col-lg-3 timeline-block">
+        @{Html.RenderPartial("_Activities");}
+    </div>
+</div>
+
+<script src="/assets/custom/script/profile.js"></script>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            getUserDetails(getURLParameter());
+            getPosts("0", getURLParameter());
+            //getFollowers(getURLParameter());
+            //getFollowings(getURLParameter());
+        });
+
+        function getUserDetails(userID) {
+            var Data = { "UserID": userID }
+            runAjax('@Url.Action("GetUserProfileDetails", "Home")', Data, false, $("body"), "full", setUserDetails);
+        }
+        function setUserDetails(data, e) {
+            $(".profile-card-full-name").text(data.Table[0]["FirstName"] + " " + data.Table[0]["LastName"]);
+
+            ///$(".profile-card .profile-card-icon img").attr("src", "/assets/images/people/" + data.Table[0]['ImageUrl']);
+            $(".profile-card .profile-card-icon").append('<img src="/assets/images/people/' + data.Table[0]['ImageUrl'] + '" width="120" />');
+            $(".profile-card .profile-card-icon").removeClass("animated-background");
+
+
+            $("#btn-follow").attr("data-user-id", data.Table[0]["ID"]);
+
+            if (data.Table[0]["IsMyFollow"] > 0) {
+                $("#btn-follow").removeClass("btn-default");
+                $("#btn-follow").addClass("btn-primary");
+                $("#btn-follow").text("Unfollow");
+            } else {
+                $("#btn-follow").removeClass("btn-primary");
+                $("#btn-follow").addClass("btn-default");
+                $("#btn-follow").text("Follow");
+            }
+        }
+
+        function getFollowers(userID) {
+            var Data = { "UserID": userID }
+            runAjax('@Url.Action("GetFollowers", "Home")', Data, false, $("body"), "full", setFollowers);
+        }
+
+        function setFollowers(data, e) {
+
+            var $me = $(e);
+            var elemArray = [];
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    var $elem = '';
+                    $elem += '<li class="">';
+                    $elem += '<div class="media-left">';
+                    $elem += '<a href="/Profile/Index/' + data[i]["FollowerID"] + '">';
+                    $elem += '<img src="/assets/images/people/' + data[i]["FollowerImgUrl"] + '" class="img-circle" width="28" height="28" >';
+                    $elem += '</a>';
+                    $elem += '</div>';
+                    $elem += '<div class="media-body">';
+                    $elem += '<a href="/Profile/Index/' + data[i]["FollowerID"] + '" class="user-name" style="font-size:14px">' + data[i]["FollowerFullName"] + '</a>';
+                    //  $elem += '<div class="user-details">Lorem ipsum dolor</div>';
+                    $elem += '<button class="btn btn-primary pull-right" data-user-id="' + data[i]["FollowerID"] + '" onclick="follow(this)">Follow</button>';
+                    $elem += '</div>';
+                    $elem += '</li>';
+                    elemArray.push($elem);
+                }
+
+            } else {
+                elemArray.push('<li class="text-center"><h4>No Followers Yet</h4></li>');
+            }
+
+            $(".followers ul.modal-group-list").append(elemArray);
+            //$(".profile-card .full-name").text(data.Table[0]["FirstName"] + " " + data.Table[0]["LastName"]);
+            //$(".profile-card .profile-card-icon img").attr("src", "/assets/images/people/" + data.Table[0]['ImageUrl']);
+        }
+        function getFollowings(userID) {
+            var Data = { "UserID": userID }
+            runAjax('@Url.Action("GetFollowings", "Home")', Data, false, $("body"), "full", setFollowings);
+        }
+        function setFollowings(data, e) {
+            var $me = $(e);
+            var elemArray = [];
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    var $elem = '';
+                    $elem += '<li class="">';
+                    $elem += '<div class="media-left">';
+                    $elem += '<a href="/Profile/Index/' + data[i]["UserID"] + '">';
+                    $elem += '<img src="/assets/images/people/' + data[i]["UserImgUrl"] + '" class="img-circle" width="28" height="28">';
+                    $elem += '</a>';
+                    $elem += '</div>';
+                    $elem += '<div class="media-body">';
+                    $elem += '<a href="/Profile/Index/' + data[i]["UserID"] + '" class="user-name" style="font-size:14px">' + data[i]["UserFullName"] + '</a>';
+                    //$elem += '<div class="user-details">Lorem ipsum dolor</div>';
+                    $elem += '<button class="btn btn-primary pull-right" data-user-id="' + data[i]["UserID"] + '" onclick="follow(this)">Follow</button>';
+                    $elem += '</div>';
+                    $elem += '</li>';
+                    elemArray.push($elem);
+                }
+
+            } else {
+                elemArray.push('<li class="text-center"><h4>No Followings Yet</h4></li>');
+            }
+            $(".followings ul.modal-group-list").append(elemArray);
+        }
+    </script>
+}
+
+<script src="/assets/vendors/script/emojione.min.js"></script>

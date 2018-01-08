@@ -1,0 +1,61 @@
+﻿<div class="timeline row">
+    <div class="col-xs-12 col-md-9 col-lg-9 timeline-block">
+        @{Html.RenderPartial("_Posts");}
+    </div>
+    <div class="col-xs-12 col-md-3 col-lg-3 timeline-block">
+         @{Html.RenderPartial("_Activities");}
+
+        @*<div class="panel">
+            <div class="panel-heading panel-heading-gray title">
+                Trending
+            </div>
+
+            <div class="panel-body no-padding list-group">
+                <ul class="links">
+                    <li><a href="/Post/Index">Why didn't Hermes drop the supply probe on Mars?</a></li>
+                    <li><a>If spacetime is curved, how would anyone know? If anyone could tell, would that really be spacetime curving?</a></li>
+                    <li><a>Why is sshd displayed several times on one branch of a pstree?</a></li>
+                    <li><a>How did Jamal get into the game show?</a></li>
+                    <li><a>Why do many sites leave half of each webpage empty?</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading panel-heading-gray title">
+                Follow
+            </div>
+            <div class="panel-body no-padding list-group">
+                <ul class="links">
+                    <li><a>Why didn't Hermes drop the supply probe on Mars?</a></li>
+                    <li><a>If spacetime is curved, how would anyone know? If anyone could tell, would that really be spacetime curving?</a></li>
+                    <li><a>Why is sshd displayed several times on one branch of a pstree?</a></li>
+                    <li><a>How did Jamal get into the game show?</a></li>
+                    <li><a>Why do many sites leave half of each webpage empty?</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="panel-heading panel-heading-gray title">
+                Delivered
+            </div>
+            <div class="panel-body no-padding list-group">
+                <ul class="links">
+                    <li><a>Why didn't Hermes drop the supply probe on Mars?</a></li>
+                    <li><a>If spacetime is curved, how would anyone know? If anyone could tell, would that really be spacetime curving?</a></li>
+                    <li><a>Why is sshd displayed several times on one branch of a pstree?</a></li>
+                    <li><a>How did Jamal get into the game show?</a></li>
+                    <li><a>Why do many sites leave half of each webpage empty?</a></li>
+                </ul>
+            </div>
+        </div>*@
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            getPosts("2", "0");
+        });
+    </script>
+}

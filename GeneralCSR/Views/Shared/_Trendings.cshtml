@@ -1,0 +1,39 @@
+﻿<div class="panel hashtag-panel">
+    <div class="panel-heading panel-heading-gray title">
+        Trending Hashtags
+    </div>
+    <div class="panel-body list-group no-padding">
+        <ul class="links">
+
+            <li><div class="animated-background" style="height: 10px; width: 100px;"></div></li>
+            <li><div class="animated-background" style="height: 10px; width: 100px;"></div></li>
+            <li><div class="animated-background" style="height: 10px; width: 100px;"></div></li>
+            <li><div class="animated-background" style="height: 10px; width: 100px;"></div></li>
+            <li><div class="animated-background" style="height: 10px; width: 100px;"></div></li>
+            @*<li><a href="/Post/Index">#KKvsIU</a></li>
+                <li><a href="/Post/Index">#PanamaPapers</a></li>
+                <li><a href="/Post/Index">#TaxJustice</a></li>
+                <li><a href="/Post/Index">#CashInvestigation</a></li>
+                <li><a href="/Post/Index">#Poverty</a></li>
+                <li><a href="/Post/Index">#PSL2017</a></li>
+                <li><a href="/Post/Index">#ChangePakistan</a></li>
+                <li><a href="/Post/Index">#TafreeMela</a></li>*@
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var Data = { "Tag": "" };
+        runAjax("/Home/GetHashtags", Data, false, $("body"), "full", setHashtags);
+    });
+    function setHashtags(data, e) {
+        if (data.length > 0) {
+            $(".hashtag-panel ul.links").empty();
+            for (var i = 0; i < data.length; i++) {
+                $(".hashtag-panel ul.links").append('<li><a href="/Post/Index">' + data[i].TagName + '</a></li>');
+            }
+        }
+
+    }
+</script>

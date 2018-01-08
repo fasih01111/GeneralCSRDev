@@ -20,6 +20,7 @@ namespace GeneralCSR.Controllers
         [AuthorizeSession]
         public ActionResult Index()
         {
+            
             return View();
         }
 
